@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+python-dotenv
+pydantic
+pydantic-settings
+requests
+pandas
+numpy
+plotly
+google-genai
+beautifulsoup4
+feedparser
+pytrends
+python-multipart
+loguru

@@ -14,7 +14,7 @@ class Settings(BaseSettings):
 
     LOG_LEVEL: str = "INFO"
 
-    DATABASE_URL: str = "sqlite:///./market_intelligence.db"
+    DATABASE_URL: str = "sqlite:////app/data/market_intelligence.db"
 
     GOOGLE_API_KEY: str = ""
 
