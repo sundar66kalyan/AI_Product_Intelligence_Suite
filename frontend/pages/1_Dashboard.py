@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import pandas as pd
@@ -5,7 +6,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 from components.cards import opportunity_chart, radar_chart
 
-BACKEND = "http://ai-backend:8000"
+# Backend configuration with environment variable support
+BACKEND = os.getenv(
+    "API_BASE_URL",
+    "http://ai-backend:8000"
+)
+
 st.set_page_config(page_title="Dashboard", layout="wide")
 
 st.title("📊 AI Product Intelligence Dashboard")

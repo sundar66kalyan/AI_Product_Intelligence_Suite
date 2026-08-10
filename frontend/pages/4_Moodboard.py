@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 
@@ -11,7 +12,7 @@ prompt = st.text_area(
 if st.button("Generate Moodboard"):
 
     response = requests.post(
-        "http://ai-backend:8000/moodboard/",
+        f"{os.getenv('API_BASE_URL', 'http://ai-backend:8000')}/moodboard/",
         json={
             "prompt": prompt
         }

@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 
@@ -11,7 +12,7 @@ product = st.text_input(
 if st.button("Generate Report"):
 
     response = requests.post(
-        "http://ai-backend:8000/gemini-report/",
+        f"{os.getenv('API_BASE_URL', 'http://ai-backend:8000')}/gemini-report/",
         json={
             "product": product
         }
