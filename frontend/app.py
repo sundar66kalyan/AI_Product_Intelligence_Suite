@@ -60,7 +60,7 @@ st.write("""
 AI Product Intelligence Suite is an AI-powered enterprise platform designed to help businesses, 
 startups, investors, and product teams analyze products using Large Language Models (LLMs).
 
-It combines multiple AI agents into a single application that can:
+It combines multiple AI capabilities into a single application that can:
 
 - Analyze products
 - Discover market trends
@@ -266,25 +266,119 @@ st.markdown("---")
 st.header("🏗 Architecture")
 
 st.code("""
-                User
-                   │
-            Streamlit UI
-                   │
-              FastAPI API
-                   │
-      -------------------------
-      Product Agent
-      Market Agent
-      Competitor Agent
-      Moodboard Agent
-      Gemini Report Agent
-      -------------------------
-                   │
-              Gemini LLM
-                   │
-          Structured Output
-                   │
-         Dashboard + Reports
+                         USER
+                           │
+                           ▼
+              ┌─────────────────────────┐
+              │    STREAMLIT FRONTEND   │
+              │                         │
+              │ • Dashboard             │
+              │ • Market Dashboard      │
+              │ • AI Insights           │
+              │ • Market Trends         │
+              │ • Competitors           │
+              │ • Product Search        │
+              │ • History               │
+              │ • AI Moodboard          │
+              │ • Gemini Report         │
+              └────────────┬────────────┘
+                           │
+                    REST API / HTTP
+                           │
+                           ▼
+              ┌─────────────────────────┐
+              │     FASTAPI BACKEND     │
+              │                         │
+              │ • Product Intelligence │
+              │ • Market Analysis       │
+              │ • Competitor Analysis   │
+              │ • AI Insights           │
+              │ • Moodboard Generation  │
+              │ • Gemini Reports        │
+              │ • Analysis History      │
+              └────────────┬────────────┘
+                           │
+              ┌────────────┼─────────────┐
+              │            │             │
+              ▼            ▼             ▼
+       ┌────────────┐ ┌───────────┐ ┌──────────────┐
+       │   Gemini   │ │  SQLite   │ │ External Data│
+       │    LLM     │ │ Database  │ │              │
+       │            │ │           │ │ • Google     │
+       │ • Analysis │ │ • History │ │   Trends     │
+       │ • Reports  │ │ • Results │ │ • News / RSS │
+       │ • Insights │ │           │ │ • Hacker News│
+       └────────────┘ └───────────┘ └──────────────┘
+              │            │             │
+              └────────────┼─────────────┘
+                           ▼
+                ┌────────────────────┐
+                │ Structured AI      │
+                │ Intelligence       │
+                │                    │
+                │ • SWOT             │
+                │ • Opportunity Score│
+                │ • Risk Score       │
+                │ • Market Insights  │
+                │ • Recommendations  │
+                │ • Executive Report │
+                └──────────┬─────────┘
+                           │
+                           ▼
+                 STREAMLIT DASHBOARD
+                           │
+                           ▼
+                    BUSINESS DECISION
+""", language="text")
+
+st.markdown("---")
+
+# ===============================
+# Deployment Architecture
+# ===============================
+
+st.header("☁️ Deployment Architecture")
+
+st.code("""
+                     INTERNET / USER
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   STREAMLIT CLOUD   │
+                │                     │
+                │  AI Product         │
+                │  Intelligence       │
+                │  Frontend           │
+                └──────────┬──────────┘
+                           │
+                    HTTPS REST API
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │       RENDER        │
+                │                     │
+                │   FastAPI Backend   │
+                │                     │
+                │   /health           │
+                │   /market           │
+                │   /product-         │
+                │    intelligence     │
+                │   /history          │
+                │   /moodboard        │
+                │   /gemini-report    │
+                └──────────┬──────────┘
+                           │
+             ┌─────────────┼──────────────┐
+             │             │              │
+             ▼             ▼              ▼
+        ┌─────────┐  ┌───────────┐  ┌─────────────┐
+        │ SQLite  │  │ Gemini API│  │ External    │
+        │         │  │           │  │ Data Sources│
+        │ History │  │ LLM       │  │             │
+        │ Results │  │ Analysis  │  │ Trends      │
+        └─────────┘  └───────────┘  │ News        │
+                                    │ RSS         │
+                                    └─────────────┘
 """, language="text")
 
 st.markdown("---")
